@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donde Walter Carta Digital</title>
+    <link type='text/css' href='{% static "css/style.css" %}' rel='stylesheet'>
+
+    <style>
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container-navbar">
+            <div class="container-logo">
+                <img src='{% static "img/logo-dondewalter.png" %}' alt="Logo Donde Walter"><img>
+            </div>
+
+            <nav class="navbar container">
+                <ul class="menu">
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Carta</a></li>
+                    <li><a href="#">Reserva</a></li>
+                    <li><a href="#">Pedido</a></li>
+                </ul>
+            </nav>
+
+            <div class="container-user">
+                <i class="fa-solid fa-basket-shopping"></i>
+                <div class="user">
+                    <i class="fa-solid fa-user" style="color: #ffffff;"></i>
+                    <h4>Ingresar</h4>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <p>Inicio de Sesion Requerido</p>   
+        <form method="post">
+            {% csrf_token %}
+            <label for="usuario">
+                usuario
+                <input type="text" name="username">
+            </label>
+
+            <label for="pass">
+                contraseña
+                <input type="password" name="password">
+            </label>
+
+            <button type="submit">Iniciar Sesion</button>
+        </form>
+    </section>
+
+</body>
+</html>

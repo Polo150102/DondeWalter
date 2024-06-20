@@ -1,0 +1,192 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donde Walter Carta Digital</title>
+    <link type='text/css' href='{% static "css/style.css" %}' rel='stylesheet'>
+
+    <style>
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container-navbar">
+            <div class="container-logo">
+                <img src='{% static "img/logo-dondewalter.png" %}' alt="Logo Donde Walter"><img>
+            </div>
+
+            <nav class="navbar container">
+                <ul class="menu">
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Carta</a></li>
+                    <li><a href="#">Reserva</a></li>
+                    <li><a href="#">Pedido</a></li>
+                </ul>
+            </nav>
+
+            <div class="container-user">
+                <i class="fa-solid fa-basket-shopping"></i>
+                <div class="user">
+                    <i class="fa-solid fa-user" style="color: #ffffff;"></i>
+                    <h4>Ingresar</h4>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="banner">
+        <div class="content-banner">
+            <h2>CARTA - DONDE WALTER</h2>
+        </div>
+    </section>
+
+    <section class="container categoria-carta">
+        <div class="container-categorias">
+            <div class="card-category">
+                <a href="{% url 'carta' %}">Mostrar Todo</a>
+            </div>
+
+            {% for tipo_comida in tipos_comida %}
+            <div class="card-category">
+                <a href="{% url 'carta' %}?tipo_comida={{ tipo_comida.nombre }}">{{ tipo_comida.nombre }}</a>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="vertical-line"></div>
+    </section>
+
+    <main>
+        <section class="container menu-carta">
+            
+            {% if "Tradición a la Leña" == tipo_comida_seleccionada or None == tipo_comida_seleccionada %}
+            <h1 class="heading-1" id="tradicion_lenia">Tradición a la Leña</h1>
+            
+            <div class="container-comidas">
+                    {% for menu in menus %}
+                    {% if "Tradición a la Leña" == menu.id_tipo_carta.nombre %}
+                    <a href="{% url 'detalle_plato' tipo_comida=menu.id_tipo_carta.nombre id=menu.id_menu %}" style="text-decoration: none;">  
+                        <div class="container-carta">
+                            <div class="container-img">
+                                <img src="{{ menu.imagen }}" alt="Parrilla Donde Walter">
+                            </div>
+                                        
+                            <div class="content-carta-menu">
+                                <h3>{{menu.nombre_plato}}</h3>
+                                <h5>{{ menu.descripcion|truncatechars:55 }}</h5>
+                                <p class="price">S/{{menu.precio}}</p>
+                            </div>
+                        </div>
+                    </a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            {% if "Parrilla" == tipo_comida_seleccionada or None == tipo_comida_seleccionada %}
+            <h1 class="heading-1" id="parrilla">Parrilla</h1>
+            
+            <div class="container-comidas">
+                {% for menu in menus %}
+                    {% if "Parrilla" == menu.id_tipo_carta.nombre %}
+                    <a href="{% url 'detalle_plato' tipo_comida=menu.id_tipo_carta.nombre id=menu.id_menu %}" style="text-decoration: none;">  
+                        <div class="container-carta">
+                            <div class="container-img">
+                                <img src="{{ menu.imagen }}" alt="Parrilla Donde Walter">
+                            </div>
+                                        
+                            <div class="content-carta-menu">
+                                <h3>{{menu.nombre_plato}}</h3>
+                                <h5>{{ menu.descripcion|truncatechars:55 }}</h5>
+                                <p class="price">S/{{menu.precio}}</p>
+                            </div>
+                        </div>
+                    </a>    
+                    {% endif %}
+                {% endfor %}
+            </div>
+            {% endif %}
+            
+            {% if "Salchipapas" == tipo_comida_seleccionada or None == tipo_comida_seleccionada %}
+            <h1 class="heading-1" id="salchipapa">Salchipapas</h1>
+            
+            <div class="container-comidas">
+                {% for menu in menus %}
+                    {% if "Salchipapas" == menu.id_tipo_carta.nombre %}
+                    <a href="{% url 'detalle_plato' tipo_comida=menu.id_tipo_carta.nombre id=menu.id_menu %}" style="text-decoration: none;">  
+                        <div class="container-carta">
+                            <div class="container-img">
+                                <img src="{{ menu.imagen }}" alt="Parrilla Donde Walter">
+                            </div>
+                                    
+                            <div class="content-carta-menu">
+                                <h3>{{menu.nombre_plato}}</h3>
+                                <h5>{{ menu.descripcion|truncatechars:55 }}</h5>
+                                <p class="price">S/{{menu.precio}}</p>
+                            </div>
+                        </div>
+                    </a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            {% if "Bebidas" == tipo_comida_seleccionada or None == tipo_comida_seleccionada %}
+            <h1 class="heading-1" id="bebida">Bebidas</h1>
+            
+            <div class="container-comidas">
+                {% for menu in menus %}
+                    {% if "Bebidas" == menu.id_tipo_carta.nombre %}
+                    <a href="{% url 'detalle_plato' tipo_comida=menu.id_tipo_carta.nombre id=menu.id_menu %}" style="text-decoration: none;">  
+                        <div class="container-carta">
+                            <div class="container-img">
+                                <img src="{{ menu.imagen }}" alt="Parrilla Donde Walter">
+                            </div>
+                                    
+                            <div class="content-carta-menu">
+                                <h3>{{menu.nombre_plato}}</h3>
+                                <h5>{{ menu.descripcion|truncatechars:55 }}</h5>
+                                <p class="price">S/{{menu.precio}}</p>
+                            </div>
+                        </div>
+                    </a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            {% if "Postres" == tipo_comida_seleccionada or None == tipo_comida_seleccionada %}
+            <h1 class="heading-1" id="postre">Postres</h1>
+            
+            <div class="container-comidas">
+                {% for menu in menus %}
+                    {% if "Postres" == menu.id_tipo_carta.nombre %}
+                    <a href="{% url 'detalle_plato' tipo_comida=menu.id_tipo_carta.nombre id=menu.id_menu %}" style="text-decoration: none;">  
+                        <div class="container-carta">
+                            <div class="container-img">
+                                <img src="{{ menu.imagen }}" alt="Parrilla Donde Walter">
+                            </div>
+                                    
+                            <div class="content-carta-menu">
+                                <h3>{{menu.nombre_plato}}</h3>
+                                <h5>{{ menu.descripcion|truncatechars:55 }}</h5>
+                                <p class="price">S/{{menu.precio}}</p>
+                            </div>
+                        </div>
+                    </a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            {% endif %}
+        </section>
+    </main>
+    <script 
+        src="https://kit.fontawesome.com/3ac6db9694.js" 
+        crossorigin="anonymous">
+    </script>
+
+</body>
+</html>

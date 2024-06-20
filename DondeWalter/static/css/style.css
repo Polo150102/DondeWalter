@@ -1,0 +1,462 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root {
+  --primary-color: #EA7C69;
+  --background-color: #252836;
+  --navbar-color: #1F1D2B;
+  --primaryText-color:#FFFFFF;
+
+}
+
+html {
+  font-size: 82.5%;
+  font-family: 'Poppins', sans-serif;
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background-color);
+}
+
+/*
+UTILIDADES
+*/
+
+.container {
+  max-width: 120rem;
+  margin: 0 auto;
+}
+
+/*
+HEADER
+*/
+.container-logo img{
+  height: 100px;
+}
+
+.container-navbar {
+  background-color: var(--navbar-color);
+  display: grid;
+  grid-auto-flow: column;
+  padding: 0.8rem 10%;
+  gap: 2rem;
+}
+
+.navbar {
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.navbar .fa-bars{
+  display: none;
+
+}
+
+.menu {
+  display: flex;
+  gap: 10rem;
+}
+
+.menu li {
+  list-style: none;
+}
+
+.menu a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: var(--primaryText-color);
+  font-weight: 300;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.menu a::after {
+  content: '';
+  width: 3.5rem;
+  height: 2px;
+  background-color: var(--primary-color);
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  opacity: 0;
+  transition: all .3s ease;
+}
+
+.menu a:hover::after {
+  opacity: 1;
+}
+
+.menu a:hover {
+  color: var(--primary-color);
+}
+
+.container-user {
+  padding-top: 2rem;
+  display: flex;
+  gap: 4rem;
+  cursor: pointer;
+  height: 70%;
+}
+
+.user {
+  display: flex;
+  gap: 2rem;
+  cursor: pointer;
+  background-color: var(--primary-color);
+  border-radius: 3rem;
+}
+.container-user .fa-basket-shopping {
+  font-size: 2.2rem;
+  color: #FFFFFF;
+  padding-right: 1.8rem;
+  padding-left: 1.8rem;
+  padding-top: 0.6rem;
+  background-color: var(--primary-color);
+  border-radius: 3rem;
+}
+
+.container-user .fa-user {
+  font-size: 2rem;
+  padding-left: 1.5rem;
+  padding-top: 0.8rem;
+}
+
+.container-user h4 {
+  font-size: 1.6rem;
+  color: var(--primaryText-color);
+  padding-top: 0.8rem;
+  padding-right: 1.4rem;
+}
+
+
+
+/* BANNER*/
+
+.banner {
+  background-image: url('/static/img/image-1.png');;
+  height: 10rem;
+  background-size: cover;
+  background-position: center;
+}
+
+.content-banner {
+  max-width: 30rem;
+  margin: 0 auto;
+  padding: 4.1rem 0;
+  text-align: center;
+}
+
+.content-banner h2 {
+  color:var(--primaryText-color);
+  font-size: 2.2rem;
+}
+
+/*CATEGORIES*/
+.categoria-carta {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.8rem;
+}
+
+.container-categorias {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  padding: 0 12rem;
+  gap: 1rem;
+}
+
+.card-category {
+  height: 4.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  color: var(--primaryText-color);
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.vertical-line {
+  width:90%;
+  height: 1px;
+  background-color: #FFFFFF;
+  margin: 0 auto;
+}
+
+.card-category a {
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--primaryText-color);
+}
+
+.card-category a:hover {
+  color: var(--primary-color)
+}
+
+.card-category a:focus {
+  color: var(--primary-color);
+}
+
+
+/*CARTA-MENU*/
+.menu-carta {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  padding: 0 6rem;
+}
+
+.container-comidas {
+  gap: 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+}
+
+.heading-1 {
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+.container-img img{
+  width: 100%;
+  height: 11rem;
+  object-fit: cover;
+  border-radius: 1.5rem 1.5rem 0 0;
+}
+
+.container-img {
+  position: relative;
+}
+
+.container-carta {
+  background-color: #FFFFFF;
+  padding: 0.4rem 0rem;
+  padding-top: 0rem;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 0 2px rgba(0,0,0, 0.1);
+}
+
+.content-carta-menu {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  row-gap: 0.2rem;
+}
+
+.content-carta-menu h3{
+  font-weight: bold;
+  font-size: 1.6rem;
+  cursor: pointer;
+  text-align: center;
+  color: black;
+  text-decoration: none;
+}
+
+.content-carta-menu h3:hover{
+  color: var(--primary-color);
+}
+
+.content-carta-menu h5{
+  text-align: center;
+  font-weight:normal;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #1C1B1B;
+}
+
+.content-carta-menu .price{
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-align: center;
+  color: black;
+  text-decoration: none;
+}
+
+/**********
+INFORMACION DE PLATOS
+*********/
+.container-plato {
+  display: flex;
+}
+
+.container-img-plato {
+  width: 100%;
+  height: 250px;
+}
+
+.container-img-plato img {
+  background-size: cover;
+  flex: 1;
+}
+
+.container-info-plato {
+  flex: 1;
+
+}
+
+.container-info-plato h2 {
+  padding-bottom: 1.3rem;
+  font-weight: bold;
+}
+
+.container-info-plato h3 {
+  font-weight:lighter;
+}
+
+/***
+PLATO INFORMACION
+****/
+
+.plato {
+  margin-top: 6rem;
+}
+
+.container-plato {
+  display: flex;
+  max-width: 95rem;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.image-plato {
+  flex: 1;
+  max-width: 50%;
+}
+
+.image-plato img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  border-radius: 8px 0 0 8px; 
+  display: block; 
+}
+
+.detalle-plato {
+  padding: 21px;
+  flex: 1;
+}
+
+.detalle-plato h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.detalle-plato p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.detalle-plato h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.extras {
+  flex-grow: 1;
+  overflow-y: auto; /* Agrega un scroll vertical */
+  max-height: 360px; /* Ajusta la altura máxima según tus necesidades */
+  margin-bottom: 20px;
+  padding-right: 10px; /* Añade un pequeño padding para evitar que el scroll tape el contenido */
+}
+
+.extra-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.extra-item img {
+  width: 110px;
+  height: 90px;
+  border-radius: 8px;
+  margin-right: 10px;
+}
+
+.extra-details {
+  flex: 1;
+}
+
+.extra-details h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.extra-details p {
+  font-size: 14px;
+  color: #666;
+}
+
+.btn-agregarExtra {
+  font-size: 20px;
+  background-color: #ff5252;
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.control-cantidad {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.btn-cantidad {
+  background-color: #ff5252;
+  color: #ffffff;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cantidad {
+  font-size: 18px;
+  margin: 0 10px;
+}
+
+.btn-agregar-carrito {
+  background-color: #ff5252;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+.btn-agregar-carrito:hover,
+.btn-cantidad:hover,
+.btn-agregarExtra:hover {
+  background-color: #ff7b7b;
+}
+

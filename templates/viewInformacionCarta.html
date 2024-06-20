@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donde Walter Carta Digital</title>
+    <link type='text/css' href='{% static "css/style.css" %}' rel='stylesheet'>
+
+    <style>
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container-navbar">
+            <div class="container-logo">
+                <img src='{% static "img/logo-dondewalter.png" %}' alt="Logo Donde Walter"><img>
+            </div>
+
+            <nav class="navbar container">
+                <ul class="menu">
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Carta</a></li>
+                    <li><a href="#">Reserva</a></li>
+                    <li><a href="#">Pedido</a></li>
+                </ul>
+            </nav>
+
+            <div class="container-user">
+                <i class="fa-solid fa-basket-shopping"></i>
+                <div class="user">
+                    <i class="fa-solid fa-user" style="color: #ffffff;"></i>
+                    <h4>Ingresar</h4>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="plato">
+        <div class="container-plato">
+            <div class="image-plato">
+                <img src="{{informacion_plato.imagen}}" alt="{{informacion_plato.imagen}}">
+            </div>
+        
+        <div class="detalle-plato">
+            <h1>{{informacion_plato.nombre_plato}}</h1>
+            <p>{{informacion_plato.descripcion}}</p>
+            <h2>Elige tus Extras</h2>
+            <div class="extras">
+                {% for info_extra in informacion_extras %}
+                    <div class="extra-item">
+                        <img src="{{info_extra.imagen_extra}}" alt="{{info_extra.nombre_extra}}">
+                        <div class="extra-details">
+                            <h3>{{info_extra.nombre_extra}}</h3>
+                            <p>+ S/{{info_extra.precio_extra}}</p>
+                        </div>
+                        <button class="btn-agregarExtra">+</button>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="control-cantidad">
+                <button class="btn-cantidad">-</button>
+                <span class="cantidad">1</span>
+                <button class="btn-cantidad">+</button>
+                <button class="btn-agregar-carrito">Agregar S/116.90</button>
+            </div>
+        </div>
+    </section>
+
+    <script 
+        src="https://kit.fontawesome.com/3ac6db9694.js" 
+        crossorigin="anonymous">
+    </script>
+
+</body>
+
+</html>
